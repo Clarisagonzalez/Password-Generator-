@@ -1,8 +1,8 @@
 
-// Get references to the #generate element
+
 var generateBtn = document.querySelector("#generate");
 
-// Write password to the #password input
+
 function writePassword() {
   
   var password = generatePassword();
@@ -16,7 +16,7 @@ function writePassword() {
   var password = generatePassword(length, includeSpecialChars, includeNumbers, includeLowercase, includeUppercase);
 
   alert("Your generated password is:\n" + password);
-  
+
   var passwordText = document.querySelector("#password");
   passwordText.value = password;
 
@@ -31,21 +31,21 @@ function generatePassword (length, includeSpecialChars, includeNumbers, includeL
   varchars = ""
 
   if (includeUppercase) {
-    chars += uppercaseChars;
+    varchars += uppercaseChars;
   }
   if (includeLowercase) {
-    chars += lowercaseChars;
+    varchars += lowercaseChars;
   }
   if (includeNumbers) {
-    chars += numberChars;
+    varchars += numberChars;
   }
   if (includeSpecialChars) {
-    chars += specialChars;
+    varchars += specialChars;
   }
-
+console.log({ varchars })
   var password = "";
   for (var i = 0; i < length; i++) {
-    password += getRandomCharacter(chars)
+    password += getRandomCharacter(varchars)
   }
 
   return password;
@@ -57,7 +57,7 @@ function getRandomCharacter(str) {
   return str.charAt(randomIndex);
 }
 
-// Add event listener to generate button
+
 generateBtn.addEventListener("click", writePassword);
 
 
